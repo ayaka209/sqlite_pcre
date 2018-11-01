@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.12)
+project(sqlite_regex)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "-fpermissive")
+set(SOURCE_FILES "pcrs.c pcrsed.c")
+include_directories("S:\\ProgramDev\\3rd\\pcre-8.42")
+include_directories("S:\\ProgramDev\\3rd\\sqlite-nogit")
+link_directories("S:\\ProgramDev\\3rd\\pcre-8.42\\.libs")
+
+add_library(sqlite_regex SHARED   main.cpp  )
+add_library(sqlite_regex2 STATIC  pcrs.c pcrsed.c )
+target_link_libraries(sqlite_regex libpcre-1.dll)
+target_link_libraries(sqlite_regex2 libpcre-1.dll)
+target_link_libraries(sqlite_regex sqlite_regex2)
