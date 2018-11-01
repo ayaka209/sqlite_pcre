@@ -231,6 +231,7 @@ extern "C" int __declspec(dllexport) sqlite3_extension_init(sqlite3 *db, char **
         return 1;
     }
     sqlite3_create_function(db, "REGEXP", 2, SQLITE_UTF8, cache, regexp, nullptr, nullptr);
+    // regexp_replace(pattern,subject,substitute,option);
     sqlite3_create_function(db, "regexp_replace", 4, SQLITE_UTF8, cache, regexp_replace, nullptr, nullptr);
     return 0;
 }
