@@ -217,7 +217,6 @@ void regexp_replace(sqlite3_context *ctx, int argc, sqlite3_value **argv)
         }
         //rc = pcre_exec(p, e, str, static_cast<int>(strlen(str)), 0, 0, nullptr, 0);
         sqlite3_result_text(ctx, result, static_cast<int>(strlen(result)), nullptr);
-        sqlite3_free(ctx);
         return;
     }
 }
